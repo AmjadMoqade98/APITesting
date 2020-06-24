@@ -1,69 +1,63 @@
 *** Settings ***
 Resource  ../Resources/resources.robot
+Suite Setup     OpenSession
+Suite Teardown  DeleteSessions
 
 *** Variables ***
-${customerResource}      /customer
 ${existedCustomerId}
 ${nonExistedCustomerId}
-
+${newName}
 
 *** Test Cases ***
 GetCustomerResource
-    OpenSession
-    ${response}=    GetRequestt     ${customerResource}
+    ${response}=    GetRequestt     /customer
     should be equal as integers  ${response.status_code}    200
 
-
 PostNewCustomer
-    OpenSession
-    ${body}=    create dictionary  name=name1
+    ${body}=    create dictionary  name=amjad
     ${header}=  create dictionary   Content-Type=application/json
     ${response}=   PostRequestt     /customer   ${body}    ${header}
     should be equal as integers  ${response.status_code}    201
-    ${jsonContent}=     to json     ${response.content}
-    ${existedCustomerId}=  get variable value   ${jsonContent['id']}
+    ${content}=     to json     ${response.content}
+    ${existedCustomerId}=  get variable value   ${content['id']}
     log to console  ${existedCustomerId}
     set global variable  ${existedCustomerId}
-    log to console  ${jsonContent}
+    log to console  ${content}
 
 
 GetExistedCustomer
-    OpenSession
     ${response}=    GetRequestt     /customer/${existedCustomerId}
     should be equal as integers  ${response.status_code}    200
 
 
 UpdateCustomer
-    #Test Api
-    OpenSession
-    ${body}=    create dictionary  name=name2
+    ${newName}  set variable  newName
+    set global variable  ${newName}
+    ${body}=    create dictionary  name=${newName}
     ${header}=  create dictionary   Content-Type=application/json
     ${response}=    PutRequestt     /customer/${existedCustomerId}  ${body}  ${header}
-    ${jsonContent}=     to json     ${response.content}
+    ${content}=     to json     ${response.content}
+    log to console  ${content}
 
-    #Test Database Consistency
-
-
-    log to console  ${jsonContent}
-
+DatabaseConsistencyOnCustomerUpdate
+    ${response}=    GetRequestt  /customer/${existedCustomerId}
+    ${jsonContent}=     to json  ${response.content}
+    ${customerName}=  get variable value  ${jsonContent['name']}
+    should be equal as strings  ${customerName}     ${newName}
 
 DeleteExistedCustomer
-    OpenSession
     ${response}=    DeleteRequestt  /customer/${existedCustomerId}
     should be equal as integers  ${response.status_code}    200
     ${nonExistedCustomerId}=    get variable value    ${existedCustomerId}
     set global variable       ${nonExistedCustomerId}
 
 GetNonExistentCustomer
-    OpenSession
     ${response}=    GetRequestt     /customer/${nonExistedCustomerId}
-    should be equal as integers  ${response.status_code}    400
+    should be equal as integers  ${response.status_code}    404
 
 DeleteNonExistedCustomer
-    OpenSession
     ${response}=    DeleteRequestt  /customer/${nonExistedCustomerId}
-    should be equal as integers  ${response.status_code}    400
-
+    should be equal as integers  ${response.status_code}    404
 
 
 *** Keywords ***

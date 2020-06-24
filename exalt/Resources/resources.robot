@@ -10,6 +10,9 @@ ${session_name}      Multithreading
 OpenSession
     create session  ${session_name}    ${base_url}
 
+DeleteSessions
+    delete all sessions
+
 GetRequestt
     [Arguments]  ${resource}
     ${response}=    get request   ${session_name}   ${resource}

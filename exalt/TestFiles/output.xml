@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.1 (Python 3.8.3 on win32)" generated="20200624 02:16:42.582" rpa="false">
-<suite id="s1" name="CustomerApi" source="C:\Users\amjad\PycharmProjects\MultiThreading\exalt\TestFiles\CustomerApi.robot">
-<test id="s1-t1" name="GetCustomerResource">
-<kw name="OpenSession" library="resources">
+<robot generator="Robot 3.2.1 (Python 3.8.3 on win32)" generated="20200624 13:46:28.794" rpa="false">
+<suite id="s1" name="ServerApi" source="C:\Users\amjad\PycharmProjects\MultiThreading\exalt\TestFiles\ServerApi.robot">
+<kw name="OpenSession" library="resources" type="setup">
 <kw name="Create Session" library="RequestsLibrary">
 <doc>Create Session: create a HTTP session to a server</doc>
 <arguments>
 <arg>${session_name}</arg>
 <arg>${base_url}</arg>
 </arguments>
-<msg timestamp="20200624 02:16:42.819" level="INFO">Creating Session using : alias=Multithreading, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20200624 02:16:42.819" endtime="20200624 02:16:42.819"></status>
+<msg timestamp="20200624 13:46:29.096" level="INFO">Creating Session using : alias=Multithreading, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200624 13:46:29.096" endtime="20200624 13:46:29.097"></status>
 </kw>
-<status status="PASS" starttime="20200624 02:16:42.818" endtime="20200624 02:16:42.820"></status>
+<status status="PASS" starttime="20200624 13:46:29.095" endtime="20200624 13:46:29.097"></status>
 </kw>
+<test id="s1-t1" name="GetServerResource">
 <kw name="GetRequestt" library="resources">
 <arguments>
-<arg>${customerResource}</arg>
+<arg>/server</arg>
 </arguments>
 <assign>
 <var>${response}</var>
@@ -31,98 +31,38 @@ given `alias`</doc>
 <assign>
 <var>${response}</var>
 </assign>
-<msg timestamp="20200624 02:16:46.847" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BE09C40&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer</msg>
-<msg timestamp="20200624 02:16:51.054" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BBC3700&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer</msg>
-<msg timestamp="20200624 02:16:55.460" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BDD11F0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer</msg>
-<msg timestamp="20200624 02:16:59.470" level="FAIL">ConnectionError: HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /customer (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BBCB190&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
-<status status="FAIL" starttime="20200624 02:16:42.820" endtime="20200624 02:16:59.470"></status>
+<msg timestamp="20200624 13:46:29.706" level="INFO">GET Request : url=http://localhost:8080/server 
+ path_url=/server 
+ headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20200624 13:46:29.707" level="INFO">GET Response : url=http://localhost:8080/server 
+ status=200, reason= 
+ body=[{"id":"3VD08PC24ltuwDLfZ9ETD6","remainingCapacity":0},{"id":"6yrE32M7yJgtECWmcGuMV5","remainingCapacity":0},{"id":"5srFZge1Kc46IkN1QGW2ge","remainingCapacity":0},{"id":"5r3GKknyod7D9L4qYiQTSQ","remainingCapacity":0},{"id":"1ZifcOIxsUYmZyGR49X1Ly","remainingCapacity":0},{"id":"7Krvd40ywOJDeAnPizSDKC","remainingCapacity":0},{"id":"1xaQxFMhx6Wf7iDLbclfrG","remainingCapacity":0},{"id":"4XmgsyClObYnrr8GdfOtoB","remainingCapacity":0},{"id":"54pOKaPLGR1AcBTSDQCzkP","remainingCapacity":0},{"id":"3R3XrYdrFHXCzHZCx86Dtv","remainingCapacity":0}] 
+ </msg>
+<msg timestamp="20200624 13:46:29.707" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:29.098" endtime="20200624 13:46:29.707"></status>
 </kw>
-<status status="FAIL" starttime="20200624 02:16:42.820" endtime="20200624 02:16:59.470"></status>
+<msg timestamp="20200624 13:46:29.707" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:29.097" endtime="20200624 13:46:29.707"></status>
 </kw>
-<status status="FAIL" starttime="20200624 02:16:42.818" endtime="20200624 02:16:59.471" critical="yes">ConnectionError: HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /customer (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BBCB190&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200624 13:46:29.708" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:29.707" endtime="20200624 13:46:29.708"></status>
+</kw>
+<status status="PASS" starttime="20200624 13:46:29.097" endtime="20200624 13:46:29.708" critical="yes"></status>
 </test>
-<test id="s1-t2" name="PostNewCustomer">
-<kw name="OpenSession" library="resources">
-<kw name="Create Session" library="RequestsLibrary">
-<doc>Create Session: create a HTTP session to a server</doc>
-<arguments>
-<arg>${session_name}</arg>
-<arg>${base_url}</arg>
-</arguments>
-<msg timestamp="20200624 02:16:59.473" level="INFO">Creating Session using : alias=Multithreading, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20200624 02:16:59.473" endtime="20200624 02:16:59.474"></status>
-</kw>
-<status status="PASS" starttime="20200624 02:16:59.473" endtime="20200624 02:16:59.474"></status>
-</kw>
-<kw name="Create Dictionary" library="BuiltIn">
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<arguments>
-<arg>name=name1</arg>
-</arguments>
-<assign>
-<var>${body}</var>
-</assign>
-<msg timestamp="20200624 02:16:59.475" level="INFO">${body} = {'name': 'name1'}</msg>
-<status status="PASS" starttime="20200624 02:16:59.474" endtime="20200624 02:16:59.475"></status>
-</kw>
-<kw name="Create Dictionary" library="BuiltIn">
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<arguments>
-<arg>Content-Type=application/json</arg>
-</arguments>
-<assign>
-<var>${header}</var>
-</assign>
-<msg timestamp="20200624 02:16:59.475" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20200624 02:16:59.475" endtime="20200624 02:16:59.475"></status>
-</kw>
-<kw name="PostRequestt" library="resources">
-<arguments>
-<arg>/customer</arg>
-<arg>${body}</arg>
-<arg>${header}</arg>
-</arguments>
-<assign>
-<var>${response}</var>
-</assign>
-<kw name="Post Request" library="RequestsLibrary">
-<doc>Send a POST request on the session object found using the
-given `alias`</doc>
-<arguments>
-<arg>${session_name}</arg>
-<arg>${resource}</arg>
-<arg>data=${body}</arg>
-<arg>headers=${headers}</arg>
-</arguments>
-<assign>
-<var>${response}</var>
-</assign>
-<msg timestamp="20200624 02:17:03.484" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BE364F0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer</msg>
-<msg timestamp="20200624 02:17:07.692" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BE718E0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer</msg>
-<msg timestamp="20200624 02:17:12.101" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BE71A90&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer</msg>
-<msg timestamp="20200624 02:17:16.108" level="FAIL">ConnectionError: HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /customer (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BE71C70&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
-<status status="FAIL" starttime="20200624 02:16:59.476" endtime="20200624 02:17:16.108"></status>
-</kw>
-<status status="FAIL" starttime="20200624 02:16:59.476" endtime="20200624 02:17:16.108"></status>
-</kw>
-<status status="FAIL" starttime="20200624 02:16:59.472" endtime="20200624 02:17:16.109" critical="yes">ConnectionError: HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /customer (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BE71C70&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
-</test>
-<test id="s1-t3" name="GetExistedCustomer">
-<kw name="OpenSession" library="resources">
-<kw name="Create Session" library="RequestsLibrary">
-<doc>Create Session: create a HTTP session to a server</doc>
-<arguments>
-<arg>${session_name}</arg>
-<arg>${base_url}</arg>
-</arguments>
-<msg timestamp="20200624 02:17:16.112" level="INFO">Creating Session using : alias=Multithreading, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20200624 02:17:16.112" endtime="20200624 02:17:16.112"></status>
-</kw>
-<status status="PASS" starttime="20200624 02:17:16.111" endtime="20200624 02:17:16.113"></status>
-</kw>
+<test id="s1-t2" name="GetExistedServer">
 <kw name="GetRequestt" library="resources">
 <arguments>
-<arg>/customer/${existedCustomerId}</arg>
+<arg>/server/${existedServerId}</arg>
 </arguments>
 <assign>
 <var>${response}</var>
@@ -137,138 +77,38 @@ given `alias`</doc>
 <assign>
 <var>${response}</var>
 </assign>
-<msg timestamp="20200624 02:17:20.121" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BE94B80&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:17:24.334" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BE94D30&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:17:28.742" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BE90BB0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:17:32.752" level="FAIL">ConnectionError: HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /customer/ (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BE906A0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
-<status status="FAIL" starttime="20200624 02:17:16.114" endtime="20200624 02:17:32.752"></status>
+<msg timestamp="20200624 13:46:29.717" level="INFO">GET Request : url=http://localhost:8080/server/3R3XrYdrFHXCzHZCx86Dtv 
+ path_url=/server/3R3XrYdrFHXCzHZCx86Dtv 
+ headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20200624 13:46:29.717" level="INFO">GET Response : url=http://localhost:8080/server/3R3XrYdrFHXCzHZCx86Dtv 
+ status=200, reason= 
+ body={"id":"3R3XrYdrFHXCzHZCx86Dtv","remainingCapacity":0} 
+ </msg>
+<msg timestamp="20200624 13:46:29.717" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:29.710" endtime="20200624 13:46:29.718"></status>
 </kw>
-<status status="FAIL" starttime="20200624 02:17:16.114" endtime="20200624 02:17:32.753"></status>
+<msg timestamp="20200624 13:46:29.718" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:29.710" endtime="20200624 13:46:29.718"></status>
 </kw>
-<status status="FAIL" starttime="20200624 02:17:16.111" endtime="20200624 02:17:32.753" critical="yes">ConnectionError: HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /customer/ (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BE906A0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200624 13:46:29.719" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:29.718" endtime="20200624 13:46:29.719"></status>
+</kw>
+<status status="PASS" starttime="20200624 13:46:29.709" endtime="20200624 13:46:29.719" critical="yes"></status>
 </test>
-<test id="s1-t4" name="UpdateCustomer">
-<kw name="OpenSession" library="resources">
-<kw name="Create Session" library="RequestsLibrary">
-<doc>Create Session: create a HTTP session to a server</doc>
-<arguments>
-<arg>${session_name}</arg>
-<arg>${base_url}</arg>
-</arguments>
-<msg timestamp="20200624 02:17:32.757" level="INFO">Creating Session using : alias=Multithreading, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20200624 02:17:32.757" endtime="20200624 02:17:32.757"></status>
-</kw>
-<status status="PASS" starttime="20200624 02:17:32.756" endtime="20200624 02:17:32.757"></status>
-</kw>
-<kw name="Create Dictionary" library="BuiltIn">
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<arguments>
-<arg>name=name2</arg>
-</arguments>
-<assign>
-<var>${body}</var>
-</assign>
-<msg timestamp="20200624 02:17:32.758" level="INFO">${body} = {'name': 'name2'}</msg>
-<status status="PASS" starttime="20200624 02:17:32.758" endtime="20200624 02:17:32.758"></status>
-</kw>
-<kw name="Create Dictionary" library="BuiltIn">
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<arguments>
-<arg>Content-Type=application/json</arg>
-</arguments>
-<assign>
-<var>${header}</var>
-</assign>
-<msg timestamp="20200624 02:17:32.760" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20200624 02:17:32.760" endtime="20200624 02:17:32.760"></status>
-</kw>
-<kw name="PutRequestt" library="resources">
-<arguments>
-<arg>/customer/${existedCustomerId}</arg>
-<arg>${body}</arg>
-<arg>${header}</arg>
-</arguments>
-<assign>
-<var>${response}</var>
-</assign>
-<kw name="Put Request" library="RequestsLibrary">
-<doc>Send a PUT request on the session object found using the
-given `alias`</doc>
-<arguments>
-<arg>${session_name}</arg>
-<arg>${resource}</arg>
-<arg>data=${body}</arg>
-<arg>headers=${header}</arg>
-</arguments>
-<assign>
-<var>${response}</var>
-</assign>
-<msg timestamp="20200624 02:17:36.769" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEA5C40&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:17:40.976" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEA5DF0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:17:45.383" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEB0070&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:17:49.391" level="FAIL">ConnectionError: HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /customer/ (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEB0220&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
-<status status="FAIL" starttime="20200624 02:17:32.761" endtime="20200624 02:17:49.391"></status>
-</kw>
-<status status="FAIL" starttime="20200624 02:17:32.761" endtime="20200624 02:17:49.391"></status>
-</kw>
-<status status="FAIL" starttime="20200624 02:17:32.756" endtime="20200624 02:17:49.393" critical="yes">ConnectionError: HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /customer/ (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEB0220&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
-</test>
-<test id="s1-t5" name="DeleteExistedCustomer">
-<kw name="OpenSession" library="resources">
-<kw name="Create Session" library="RequestsLibrary">
-<doc>Create Session: create a HTTP session to a server</doc>
-<arguments>
-<arg>${session_name}</arg>
-<arg>${base_url}</arg>
-</arguments>
-<msg timestamp="20200624 02:17:49.396" level="INFO">Creating Session using : alias=Multithreading, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20200624 02:17:49.396" endtime="20200624 02:17:49.397"></status>
-</kw>
-<status status="PASS" starttime="20200624 02:17:49.396" endtime="20200624 02:17:49.397"></status>
-</kw>
-<kw name="DeleteRequestt" library="resources">
-<arguments>
-<arg>/customer/${existedCustomerId}</arg>
-</arguments>
-<assign>
-<var>${response}</var>
-</assign>
-<kw name="Delete Request" library="RequestsLibrary">
-<doc>Send a DELETE request on the session object found using the
-given `alias`</doc>
-<arguments>
-<arg>${session_name}</arg>
-<arg>${resource}</arg>
-</arguments>
-<assign>
-<var>${response}</var>
-</assign>
-<msg timestamp="20200624 02:17:53.406" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BE94550&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:17:57.613" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEB0220&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:18:02.018" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEB0040&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:18:06.026" level="FAIL">ConnectionError: HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /customer/ (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEB0880&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
-<status status="FAIL" starttime="20200624 02:17:49.397" endtime="20200624 02:18:06.026"></status>
-</kw>
-<status status="FAIL" starttime="20200624 02:17:49.397" endtime="20200624 02:18:06.026"></status>
-</kw>
-<status status="FAIL" starttime="20200624 02:17:49.395" endtime="20200624 02:18:06.027" critical="yes">ConnectionError: HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /customer/ (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEB0880&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
-</test>
-<test id="s1-t6" name="GetNonExistentCustomer">
-<kw name="OpenSession" library="resources">
-<kw name="Create Session" library="RequestsLibrary">
-<doc>Create Session: create a HTTP session to a server</doc>
-<arguments>
-<arg>${session_name}</arg>
-<arg>${base_url}</arg>
-</arguments>
-<msg timestamp="20200624 02:18:06.030" level="INFO">Creating Session using : alias=Multithreading, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20200624 02:18:06.030" endtime="20200624 02:18:06.031"></status>
-</kw>
-<status status="PASS" starttime="20200624 02:18:06.030" endtime="20200624 02:18:06.031"></status>
-</kw>
+<test id="s1-t3" name="GetNonExistentServer">
 <kw name="GetRequestt" library="resources">
 <arguments>
-<arg>/customer/${nonExistedCustomerId}</arg>
+<arg>/server/${nonExistedServerId}</arg>
 </arguments>
 <assign>
 <var>${response}</var>
@@ -283,38 +123,44 @@ given `alias`</doc>
 <assign>
 <var>${response}</var>
 </assign>
-<msg timestamp="20200624 02:18:10.038" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEBE6D0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:18:14.247" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEBA490&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:18:18.653" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEBA310&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:18:22.661" level="FAIL">ConnectionError: HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /customer/ (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEB0DC0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
-<status status="FAIL" starttime="20200624 02:18:06.031" endtime="20200624 02:18:22.661"></status>
+<msg timestamp="20200624 13:46:29.726" level="INFO">GET Request : url=http://localhost:8080/server/mmmmmmmmmmmmmmmmmmmmmm 
+ path_url=/server/mmmmmmmmmmmmmmmmmmmmmm 
+ headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20200624 13:46:29.726" level="INFO">GET Response : url=http://localhost:8080/server/mmmmmmmmmmmmmmmmmmmmmm 
+ status=404, reason= 
+ body=server does not exist 
+ </msg>
+<msg timestamp="20200624 13:46:29.727" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:29.721" endtime="20200624 13:46:29.727"></status>
 </kw>
-<status status="FAIL" starttime="20200624 02:18:06.031" endtime="20200624 02:18:22.661"></status>
+<msg timestamp="20200624 13:46:29.727" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:29.720" endtime="20200624 13:46:29.727"></status>
 </kw>
-<status status="FAIL" starttime="20200624 02:18:06.029" endtime="20200624 02:18:22.662" critical="yes">ConnectionError: HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /customer/ (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEB0DC0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
-</test>
-<test id="s1-t7" name="DeleteNonExistedCustomer">
-<kw name="OpenSession" library="resources">
-<kw name="Create Session" library="RequestsLibrary">
-<doc>Create Session: create a HTTP session to a server</doc>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
 <arguments>
-<arg>${session_name}</arg>
-<arg>${base_url}</arg>
+<arg>${response.status_code}</arg>
+<arg>404</arg>
 </arguments>
-<msg timestamp="20200624 02:18:22.666" level="INFO">Creating Session using : alias=Multithreading, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20200624 02:18:22.665" endtime="20200624 02:18:22.666"></status>
+<msg timestamp="20200624 13:46:29.728" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:29.727" endtime="20200624 13:46:29.728"></status>
 </kw>
-<status status="PASS" starttime="20200624 02:18:22.665" endtime="20200624 02:18:22.666"></status>
-</kw>
-<kw name="DeleteRequestt" library="resources">
+<status status="PASS" starttime="20200624 13:46:29.720" endtime="20200624 13:46:29.728" critical="yes"></status>
+</test>
+<test id="s1-t4" name="RentServerWithValidSpace">
+<kw name="GetRequestt" library="resources">
 <arguments>
-<arg>/customer/${nonExistedCustomerId}</arg>
+<arg>/server/rent?id=${customerId}&amp;space=50</arg>
 </arguments>
 <assign>
 <var>${response}</var>
 </assign>
-<kw name="Delete Request" library="RequestsLibrary">
-<doc>Send a DELETE request on the session object found using the
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
 given `alias`</doc>
 <arguments>
 <arg>${session_name}</arg>
@@ -323,50 +169,253 @@ given `alias`</doc>
 <assign>
 <var>${response}</var>
 </assign>
-<msg timestamp="20200624 02:18:26.675" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BED0CD0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:18:30.885" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BED0E80&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:18:35.294" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BED90D0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:18:39.303" level="FAIL">ConnectionError: HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /customer/ (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BED92E0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
-<status status="FAIL" starttime="20200624 02:18:22.667" endtime="20200624 02:18:39.303"></status>
+<msg timestamp="20200624 13:46:29.740" level="INFO">GET Request : url=http://localhost:8080/server/rent?id=158fh7eFVXmTzK2FTZSFqt&amp;space=50 
+ path_url=/server/rent?id=158fh7eFVXmTzK2FTZSFqt&amp;space=50 
+ headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20200624 13:46:29.741" level="INFO">GET Response : url=http://localhost:8080/server/rent?id=158fh7eFVXmTzK2FTZSFqt&amp;space=50 
+ status=200, reason= 
+ body={"id":"6zNJRmn3zaeSoSavQX4msb","remainingCapacity":50} 
+ </msg>
+<msg timestamp="20200624 13:46:29.741" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:29.730" endtime="20200624 13:46:29.741"></status>
 </kw>
-<status status="FAIL" starttime="20200624 02:18:22.667" endtime="20200624 02:18:39.303"></status>
+<msg timestamp="20200624 13:46:29.741" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:29.729" endtime="20200624 13:46:29.741"></status>
 </kw>
-<status status="FAIL" starttime="20200624 02:18:22.664" endtime="20200624 02:18:39.304" critical="yes">ConnectionError: HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /customer/ (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BED92E0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200624 13:46:29.742" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:29.742" endtime="20200624 13:46:29.742"></status>
+</kw>
+<status status="PASS" starttime="20200624 13:46:29.729" endtime="20200624 13:46:29.743" critical="yes"></status>
 </test>
-<status status="FAIL" starttime="20200624 02:16:42.584" endtime="20200624 02:18:39.307"></status>
+<test id="s1-t5" name="RentServerWithInvalidSpace">
+<kw name="GetRequestt" library="resources">
+<arguments>
+<arg>/server/rent?id=${customerId}&amp;space=120</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>${session_name}</arg>
+<arg>${resource}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200624 13:46:29.752" level="INFO">GET Request : url=http://localhost:8080/server/rent?id=158fh7eFVXmTzK2FTZSFqt&amp;space=120 
+ path_url=/server/rent?id=158fh7eFVXmTzK2FTZSFqt&amp;space=120 
+ headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20200624 13:46:29.752" level="INFO">GET Response : url=http://localhost:8080/server/rent?id=158fh7eFVXmTzK2FTZSFqt&amp;space=120 
+ status=400, reason= 
+ body=Invalid space or Invalid customerId 
+ </msg>
+<msg timestamp="20200624 13:46:29.752" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:29.746" endtime="20200624 13:46:29.752"></status>
+</kw>
+<msg timestamp="20200624 13:46:29.752" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:29.745" endtime="20200624 13:46:29.752"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>400</arg>
+</arguments>
+<msg timestamp="20200624 13:46:29.753" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:29.753" endtime="20200624 13:46:29.753"></status>
+</kw>
+<status status="PASS" starttime="20200624 13:46:29.743" endtime="20200624 13:46:29.754" critical="yes"></status>
+</test>
+<test id="s1-t6" name="DatabaseConsistencyOnServerSpan">
+<kw name="GetRequestt" library="resources">
+<arguments>
+<arg>/server/rent?id=${customerId}&amp;space=${maximumServerSize}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>${session_name}</arg>
+<arg>${resource}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200624 13:46:29.770" level="INFO">GET Request : url=http://localhost:8080/server/rent?id=158fh7eFVXmTzK2FTZSFqt&amp;space=100 
+ path_url=/server/rent?id=158fh7eFVXmTzK2FTZSFqt&amp;space=100 
+ headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20200624 13:46:29.770" level="INFO">GET Response : url=http://localhost:8080/server/rent?id=158fh7eFVXmTzK2FTZSFqt&amp;space=100 
+ status=200, reason= 
+ body={"id":"5WDCs41PyEhfBM7e0M2HCJ","remainingCapacity":0} 
+ </msg>
+<msg timestamp="20200624 13:46:29.771" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:29.756" endtime="20200624 13:46:29.771"></status>
+</kw>
+<msg timestamp="20200624 13:46:29.771" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:29.756" endtime="20200624 13:46:29.771"></status>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<doc>Convert a string to a JSON object</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${content}</var>
+</assign>
+<msg timestamp="20200624 13:46:29.772" level="INFO">To JSON using : content={"id":"5WDCs41PyEhfBM7e0M2HCJ","remainingCapacity":0} </msg>
+<msg timestamp="20200624 13:46:29.773" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20200624 13:46:29.773" level="INFO">${content} = {'id': '5WDCs41PyEhfBM7e0M2HCJ', 'remainingCapacity': 0}</msg>
+<status status="PASS" starttime="20200624 13:46:29.772" endtime="20200624 13:46:29.773"></status>
+</kw>
+<kw name="Get Variable Value" library="BuiltIn">
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<arguments>
+<arg>${content['id']}</arg>
+</arguments>
+<assign>
+<var>${spannedServerId}</var>
+</assign>
+<msg timestamp="20200624 13:46:29.774" level="INFO">${spannedServerId} = 5WDCs41PyEhfBM7e0M2HCJ</msg>
+<status status="PASS" starttime="20200624 13:46:29.773" endtime="20200624 13:46:29.774"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20200624 13:46:34.776" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20200624 13:46:29.774" endtime="20200624 13:46:34.776"></status>
+</kw>
+<kw name="GetRequestt" library="resources">
+<arguments>
+<arg>/server/${spannedServerId}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>${session_name}</arg>
+<arg>${resource}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200624 13:46:34.785" level="INFO">GET Request : url=http://localhost:8080/server/5WDCs41PyEhfBM7e0M2HCJ 
+ path_url=/server/5WDCs41PyEhfBM7e0M2HCJ 
+ headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20200624 13:46:34.785" level="INFO">GET Response : url=http://localhost:8080/server/5WDCs41PyEhfBM7e0M2HCJ 
+ status=200, reason= 
+ body={"id":"5WDCs41PyEhfBM7e0M2HCJ","remainingCapacity":0} 
+ </msg>
+<msg timestamp="20200624 13:46:34.785" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:34.777" endtime="20200624 13:46:34.785"></status>
+</kw>
+<msg timestamp="20200624 13:46:34.785" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:34.777" endtime="20200624 13:46:34.786"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<status status="PASS" starttime="20200624 13:46:34.786" endtime="20200624 13:46:34.787"></status>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<doc>Convert a string to a JSON object</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${content}</var>
+</assign>
+<msg timestamp="20200624 13:46:34.788" level="INFO">To JSON using : content={"id":"5WDCs41PyEhfBM7e0M2HCJ","remainingCapacity":0} </msg>
+<msg timestamp="20200624 13:46:34.788" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20200624 13:46:34.788" level="INFO">${content} = {'id': '5WDCs41PyEhfBM7e0M2HCJ', 'remainingCapacity': 0}</msg>
+<status status="PASS" starttime="20200624 13:46:34.787" endtime="20200624 13:46:34.788"></status>
+</kw>
+<kw name="Get Variable Value" library="BuiltIn">
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<arguments>
+<arg>${content['remainingCapacity']}</arg>
+</arguments>
+<assign>
+<var>${remainingCapacity}</var>
+</assign>
+<msg timestamp="20200624 13:46:34.789" level="INFO">${remainingCapacity} = 0</msg>
+<status status="PASS" starttime="20200624 13:46:34.789" endtime="20200624 13:46:34.789"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200624 13:46:34.790" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:34.790" endtime="20200624 13:46:34.790"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${remainingCapacity}</arg>
+<arg>0</arg>
+</arguments>
+<msg timestamp="20200624 13:46:34.790" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200624 13:46:34.790" endtime="20200624 13:46:34.790"></status>
+</kw>
+<status status="PASS" starttime="20200624 13:46:29.755" endtime="20200624 13:46:34.791" critical="yes"></status>
+</test>
+<kw name="DeleteSessions" library="resources" type="teardown">
+<kw name="Delete All Sessions" library="RequestsLibrary">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20200624 13:46:34.793" level="INFO">Delete All Sessions</msg>
+<status status="PASS" starttime="20200624 13:46:34.793" endtime="20200624 13:46:34.793"></status>
+</kw>
+<status status="PASS" starttime="20200624 13:46:34.793" endtime="20200624 13:46:34.794"></status>
+</kw>
+<status status="PASS" starttime="20200624 13:46:28.796" endtime="20200624 13:46:34.794"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="7">Critical Tests</stat>
-<stat pass="0" fail="7">All Tests</stat>
+<stat pass="6" fail="0">Critical Tests</stat>
+<stat pass="6" fail="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="7" id="s1" name="CustomerApi">CustomerApi</stat>
+<stat pass="6" fail="0" id="s1" name="ServerApi">ServerApi</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20200624 02:16:46.847" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BE09C40&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer</msg>
-<msg timestamp="20200624 02:16:51.054" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BBC3700&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer</msg>
-<msg timestamp="20200624 02:16:55.460" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BDD11F0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer</msg>
-<msg timestamp="20200624 02:17:03.484" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BE364F0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer</msg>
-<msg timestamp="20200624 02:17:07.692" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BE718E0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer</msg>
-<msg timestamp="20200624 02:17:12.101" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BE71A90&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer</msg>
-<msg timestamp="20200624 02:17:20.121" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BE94B80&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:17:24.334" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BE94D30&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:17:28.742" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BE90BB0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:17:36.769" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEA5C40&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:17:40.976" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEA5DF0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:17:45.383" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEB0070&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:17:53.406" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BE94550&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:17:57.613" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEB0220&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:18:02.018" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEB0040&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:18:10.038" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEBE6D0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:18:14.247" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEBA490&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:18:18.653" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BEBA310&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:18:26.675" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BED0CD0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:18:30.885" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BED0E80&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
-<msg timestamp="20200624 02:18:35.294" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002CB7BED90D0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /customer/</msg>
 </errors>
 </robot>
