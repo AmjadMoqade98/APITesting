@@ -42,7 +42,7 @@ UpdateCustomer
     ${jsonContent}=     to json     ${response.content}
 
     #Test Database Consistency
-    $
+
 
     log to console  ${jsonContent}
 
